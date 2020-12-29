@@ -1,9 +1,21 @@
-const { Client, Collection } = require("discord.js");
-const {Inscriber} = require("@koreanpanda/inscriber");
-const CommandManager = require("./manager/CommandManager");
-const EventManager = require("./manager/EventManager");
+/**
+ * Author: Koreanpanda345
+ * File: PokemonBot.js
+ * Created At: 12/27/2020
+ * Last Modified: 12/28/2020
+ * Description: This is the Pokemon Bot's Core. This is a file that will be used in just about every file, except for databases, and files in the Data folder.
+ */
+
+//#region Imports
+const { Client, Collection } = require("discord.js"); // Discord.js
+const {Inscriber} = require("@koreanpanda/inscriber"); // Logger package
+const CommandManager = require("./manager/CommandManager"); // Command Manager
+const EventManager = require("./manager/EventManager"); // Event manager
 // eslint-disable-next-line no-unused-vars
-const CommandBase = require("./bases/CommandBase");
+const CommandBase = require("./bases/CommandBase"); // Command base
+//#endregion
+
+//#region Class
 
 module.exports = class PokemonBot extends Client
 {
@@ -30,3 +42,4 @@ module.exports = class PokemonBot extends Client
 		this.logger.info("All files are loaded in.");
 	}
 };
+//#endregion

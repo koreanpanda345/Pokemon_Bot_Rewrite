@@ -6,13 +6,13 @@ const Pokedex = require("pokedex-promise-v2");
 const P = new Pokedex();
 const PlayerDB = require("../../database/PlayerDB");
 const PokemonModel = require("../../database/models/PokemonModel");
-const {RandomInt} = require("../../modules/Utils");
+const {randomInt} = require("../../modules/Utils");
 module.exports = class StartPokemonCommand extends CommandBase
 {
 	constructor(client)
 	{
 		super(client, {
-			name: "start",
+			name: "start", // Usage: p.start
 			description: "Allows you to start on your pokemon advenature.",
 			category: "Pokemon",
 			preconditions: [
@@ -20,7 +20,7 @@ module.exports = class StartPokemonCommand extends CommandBase
 				 * @param {CommandContextBase} ctx
 				 */
 				// eslint-disable-next-line no-unused-vars
-				(ctx) =>
+				(ctx) => // Checks if the user has a starter or not. if they do, then they shouldn't be able to use this command.
 				{
 					const db = new PlayerDB(ctx.user.id);
 					console.debug(db.hasPokemon());
@@ -99,7 +99,7 @@ module.exports = class StartPokemonCommand extends CommandBase
 												5,
 												0,
 												false,
-												natures[RandomInt(0, natures.length)].name.toLowerCase(),
+												natures[randomInt(0, natures.length)].name.toLowerCase(),
 												["tackle"],
 												response.abilities[0],
 												false,
@@ -111,12 +111,12 @@ module.exports = class StartPokemonCommand extends CommandBase
 												0,
 												species.growth_rate,
 												{
-													hp: RandomInt(0, 31),
-													atk: RandomInt(0, 31),
-													def: RandomInt(0, 31),
-													spa: RandomInt(0, 31),
-													spd: RandomInt(0, 31),
-													spe: RandomInt(0, 31)
+													hp: randomInt(0, 31),
+													atk: randomInt(0, 31),
+													def: randomInt(0, 31),
+													spa: randomInt(0, 31),
+													spd: randomInt(0, 31),
+													spe: randomInt(0, 31)
 												},
 												{
 													hp: 0,

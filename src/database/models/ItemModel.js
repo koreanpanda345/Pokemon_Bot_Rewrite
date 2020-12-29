@@ -1,5 +1,7 @@
-
-
+/**
+ * This is the Item's Model. This is to construct items.
+ * @type {ItemModel}
+ */
 module.exports = class ItemModel
 {
 	constructor(id, name, price, sellPrice, effects, description)

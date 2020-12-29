@@ -1,5 +1,9 @@
 const Pokedex = require("pokedex-promise-v2");
 const P = new Pokedex();
+/**
+ * This is the Pokemon's Model. This is used to construct the Pokemon object, to make it easier to move data around, and have props defined already.
+ * @type {PokemonModel}
+ */
 module.exports = class PokemonModel
 {
 	constructor(name, nickname, level, exp, shiny, nature, moves, ability, pokerus, canEvolve, canMegaEvolve, item, status, maxHp, currentHp, growthRate, ivs, evs)
@@ -83,12 +87,18 @@ module.exports = class PokemonModel
 		this.evs = evs;
 	}
 
+	/**
+	 * Used to heal the pokemon fully
+	 */
 	heal()
 	{
 		this.currentHp = this.maxHp;
 		this.status = "None";
 	}
 
+	/**
+	 * Used to get the amount of exp is needed for the pokemon to level up.
+	 */
 	expNeeded()
 	{
 		P.getGrowthRateByName(this.growthRate)

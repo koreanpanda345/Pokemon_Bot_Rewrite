@@ -2,6 +2,11 @@
 const PokemonModel = require("./PokemonModel");
 // eslint-disable-next-line no-unused-vars
 const ItemModel = require("./ItemModel");
+
+/**
+ * This is the Player's Model. This is used to construct the player object to be used.
+ * @type {PlayerModel}
+ */
 module.exports = class PlayerModel
 {
 	constructor (userId, credits, caughtPokemon, team, pc, bag)

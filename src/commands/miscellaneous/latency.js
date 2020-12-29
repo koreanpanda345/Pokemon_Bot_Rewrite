@@ -8,7 +8,7 @@ module.exports = class LatencyCommand extends CommandBase
 	constructor(client)
 	{
 		super(client, {
-			name: "latency",
+			name: "latency", // Usage: p.latency | p.ping
 			aliases: ["ping"],
 			description: "Displays my latency",
 			category: "Miscellaneous",

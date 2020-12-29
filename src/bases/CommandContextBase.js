@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-const { Message, MessageEmbed } = require("discord.js");
+const { Message, MessageEmbed, Guild, Channel, User, GuildMember } = require("discord.js");
 
 
 module.exports = class CommandContextBase
@@ -11,17 +11,50 @@ module.exports = class CommandContextBase
 	 */
 	constructor(message, args)
 	{
+		/**
+		 *
+		 * @type {Message}
+		 */
 		this.message = message;
+		/**
+		 *
+		 * @type {string[]}
+		 */
 		this.args = args;
+		/**
+		 * @type {string}
+		 */
 		this.channelId = message.channel.id;
+		/**
+		 * @type {string}
+		 */
 		this.guildId = message.guild.id;
+		/**
+		 * @type {Guild}
+		 */
 		this.guild = message.guild;
+		/**
+		 * @type {Channel}
+		 */
 		this.channel = message.channel;
+		/**
+		 * @type {string}
+		 */
 		this.userId = message.author.id;
+		/**
+		 * @type {User}
+		 */
 		this.user = message.author;
+		/**
+		 * @type {GuildMember}
+		 */
 		this.member = message.member;
 	}
 
+	/**
+	 *
+	 * @returns {module:"discord.js".MessageEmbed}
+	 */
 	defaultEmbed()
 	{
 		const embed = new MessageEmbed();
@@ -30,6 +63,11 @@ module.exports = class CommandContextBase
 		return embed;
 	}
 
+	/**
+	 *
+	 * @param {*} content
+	 * @returns {*}
+	 */
 	sendMessage(content)
 	{
 		return this.channel.send(content);

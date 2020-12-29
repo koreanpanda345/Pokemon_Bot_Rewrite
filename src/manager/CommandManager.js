@@ -1,20 +1,23 @@
 // eslint-disable-next-line no-unused-vars
 const PokemonBot = require("../PokemonBot");
 
-
+/**
+ * This is the CommandManager Class. This class's responsibility is to handle commands, such as loading them.
+ * @type {CommandManager}
+ */
 module.exports = class CommandManager
 {
 	/**
-	 * 
-	 * @param {PokemonBot} client 
+	 *
+	 * @param {PokemonBot} client
 	 */
 	constructor(client)
 	{
 		this.client = client;
 	}
 	/**
-	 * 
-	 * @param {string} dir 
+	 * Load the command in a directory.
+	 * @param {string} dir
 	 */
 	loadCommands(dir)
 	{

@@ -1,12 +1,15 @@
 // eslint-disable-next-line no-unused-vars
 const PokemonBot = require("../../PokemonBot");
 
-
-module.exports = class 
+/**
+ * Ready Event.
+ * @type {exports}
+ */
+module.exports = class
 {
 	/**
-	 * 
-	 * @param {PokemonBot} client 
+	 *
+	 * @param {PokemonBot} client
 	 */
 	constructor(client)
 	{

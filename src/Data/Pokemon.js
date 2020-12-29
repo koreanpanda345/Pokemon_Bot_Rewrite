@@ -1,4 +1,4 @@
-
+// This file holds static data variables that is easier to have made, then asking PokeApi to get them.
 
 module.exports = {
 	starters: [
