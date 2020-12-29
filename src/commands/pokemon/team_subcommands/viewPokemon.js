@@ -24,12 +24,13 @@ module.exports = (ctx, db, args) =>
 	const embed = ctx.defaultEmbed();
 	const pokemon = team[Number(id)];
 	embed.setTitle(`${((pokemon.nickname !== "" || pokemon.nickname !== undefined || pokemon.nickname !== null) ? `${pokemon.nickname} (${pokemon.name})` : `${pokemon.name}`)}`);
-	embed.setDescription(`Trainer: ${ctx.user.tag}`);
+	
 	P.getPokemonByName(pokemon.name)
 		.then((response) =>
 		{
 			console.debug(response);
-
+			let type = response.types.length === 1 ? `${response.types[0].type.name}` : `${response.types[0].type.name} | ${response.types[1].type.name}`;
+			embed.setDescription(`Trainer: ${ctx.user.tag}\nTypes: ${type}\nAbility: ${pokemon.ability.ability.name}`);
 			embed.setImage(response.sprites["front_default"]);
 			ctx.sendMessage(embed);
 		});

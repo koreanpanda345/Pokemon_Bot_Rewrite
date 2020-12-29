@@ -6,7 +6,7 @@ const PokemonModel = require("./models/PokemonModel");
 const ItemModel = require("./models/ItemModel");
 /**
  * This is the Player's Database Class. This class is responsible for anything to do with the player's accounts.
- * @requires {db} - This the database package that will be used for now. Later on, before deployment, there will be a switch in dbs to a remote db. this is way there is a class, so it makes the switch easier to do.
+ * @requires {db} - This the database package that will be used for now. Later on, before deployment, there will be a switch in dbs to a remote db. this is why there is a class, so it makes the switch easier to do.
  * @type {PlayerDB}
  */
 module.exports = class PlayerDB
@@ -52,7 +52,7 @@ module.exports = class PlayerDB
 	getAccount()
 	{
 		if(!db.has(`player_${this.userId}_account`)) this.createAccount();
-		console.log(db.get(`player_${this.userId}_account`));
+		// console.log(db.get(`player_${this.userId}_account`));
 		const json = db.get(`player_${this.userId}_account`);
 		return new PlayerModel(json.userId, Number(json.credits), Number(json.caughtPokemon), json.team, json.pc, json.bag);
 	}
@@ -65,8 +65,7 @@ module.exports = class PlayerDB
 	addPokemon(model)
 	{
 		const account = this.getAccount();
-		model.expNeededToLevelUp = model.expNeeded();
-		console.debug(account);
+		// console.debug(account);
 		if(account.team.length <= 5) account.team.push(model);
 		else account.pc.push(model);
 		this.save(account);
@@ -80,9 +79,8 @@ module.exports = class PlayerDB
 	 */
 	updatePokemon(index, model, team = false)
 	{
-		model.expNeeded();
 		const account = this.getAccount();
-		console.debug(account);
+		// console.debug(account);
 		if(team)
 			account.team[index] = model;
 		else
@@ -112,6 +110,7 @@ module.exports = class PlayerDB
 	 */
 	save(model)
 	{
+		console.debug(model);
 		db.set(`player_${this.userId}_account`, model);
 	}
 

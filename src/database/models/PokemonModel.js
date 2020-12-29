@@ -1,5 +1,3 @@
-const Pokedex = require("pokedex-promise-v2");
-const P = new Pokedex();
 /**
  * This is the Pokemon's Model. This is used to construct the Pokemon object, to make it easier to move data around, and have props defined already.
  * @type {PokemonModel}
@@ -37,7 +35,7 @@ module.exports = class PokemonModel
 		 */
 		this.moves = moves;
 		/**
-		 * @type {number | "H" | "S"}
+		 * @type {{ability: {name: string, url: string}, is_hidden: boolean, slot: number}}
 		 */
 		this.ability = ability;
 		/**
@@ -47,7 +45,7 @@ module.exports = class PokemonModel
 		/**
 		 * @type {number}
 		 */
-		this.expNeededToLevelUp = 0;
+		// this.expNeededToLevelUp = 0;
 		/**
 		 * @type {boolean}
 		 */
@@ -85,8 +83,6 @@ module.exports = class PokemonModel
 		 * @type {{hp: number, atk: number, def: number, spa: number, spd: number, spe: number}}
 		 */
 		this.evs = evs;
-
-		this.expNeeded();
 	}
 
 	/**
@@ -103,13 +99,16 @@ module.exports = class PokemonModel
 	 * @todo Fix this so it doesn't throw the TypeError that it is not a function. 
 	 * @todo Make this where the PokemonModel automatically uses this method so we can get the expNeededToLevelUp to added, and be able to be used.
 	 */
-	expNeeded()
-	{
-		P.getGrowthRateByName(this.growthRate)
-			.then(response =>
-			{
-				console.debug(response);
-				return response.levels[this.level + 1].experience;
-			}).catch(error => console.error(error));
-	}
+	/**
+	 * @deprecated This doesn't work how i wanted to work. so this will be moved, and be used outside the model.
+	 */
+	// expNeeded()
+	// {
+	// 	P.getGrowthRateByName(this.growthRate)
+	// 		.then(response =>
+	// 		{
+	// 			console.debug(response);
+	// 			return response.levels[this.level + 1].experience;
+	// 		}).catch(error => console.error(error));
+	// }
 };

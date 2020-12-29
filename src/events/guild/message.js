@@ -5,6 +5,7 @@ const PokemonBot = require("../../PokemonBot");
 const { Message } = require("discord.js");
 const CommandContextBase = require("../../bases/CommandContextBase");
 const PlayerDB = require("../../database/PlayerDB");
+const ExpSystem = require("../../Systems/PokemonSystems/ExpSystem");
 
 /**
  * Message Event.
@@ -32,17 +33,17 @@ module.exports = class
 		if(db.hasPokemon()) // if the user has an account, and a pokemon.
 		{
 			// Exp System.
+			const expSys = new ExpSystem();
 			// @todo Move the EXP System to a different file to make this more organized.
 			const account = db.getAccount();
 			const pokemon = account.team[0];
 			pokemon.exp += 1;
-			console.debug(pokemon);
+			// console.debug(pokemon);
 			db.updatePokemon(0, pokemon, true);
-			if(pokemon.exp >= pokemon.expNeededToLevelUp)// If the pokemon's exp is more than what the pokemon needs to level up.
+			if(pokemon.exp >= expSys.ExpNeeded(pokemon.level + 1, pokemon.growthRate))// If the pokemon's exp is more than what the pokemon needs to level up.
 			{
 				pokemon.exp = 0;
 				pokemon.level++;
-				pokemon.expNeededToLevelUp = pokemon.expNeeded();
 				db.updatePokemon(0, pokemon, true);
 				message.channel.send(`Congratulations <@${message.author.id}>, ${pokemon.nickname || pokemon.name} has leveled up.`);
 			}

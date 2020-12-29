@@ -31,6 +31,7 @@ module.exports = class PCCommand extends CommandBase
 	 */
 	invoke(ctx)
 	{
+		if(ctx.args.length == 0) ctx.args.push("1");
 		let action = ctx.args.shift().toLowerCase();
 		let args = ctx.args;
 

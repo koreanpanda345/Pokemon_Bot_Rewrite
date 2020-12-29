@@ -3,6 +3,7 @@ const CommandBase = require("../../bases/CommandBase");
 const CommandContextBase = require("../../bases/CommandContextBase");
 const PlayerDB = require("../../database/PlayerDB");
 const viewPokemon = require("./team_subcommands/viewPokemon");
+const viewTeam = require("./team_subcommands/viewTeam");
 
 module.exports = class TeamCommand extends CommandBase
 {
@@ -34,19 +35,19 @@ module.exports = class TeamCommand extends CommandBase
 	 */
 	invoke(ctx)
 	{
-		console.debug(ctx.args);
+		// console.debug(ctx.args);
 		if(ctx.args.length == 0) ctx.args.push("1");
 		let action = ctx.args.shift().toLowerCase();
 		let args = ctx.args;
 		
 		switch(action)
 		{
-		case "move": // p.team move 1 2
-
+		case "view": // p.team move 1 2
+			viewPokemon(ctx, new PlayerDB(ctx.userId), args);
 			break;
 		
 		default: // p.team | p.team 1
-			viewPokemon(ctx, new PlayerDB(ctx.userId), action);
+			viewTeam(ctx, new PlayerDB(ctx.userId));
 			break;
 		}
 	}
