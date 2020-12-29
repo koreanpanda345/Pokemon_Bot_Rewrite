@@ -47,7 +47,7 @@ module.exports = class PokemonModel
 		/**
 		 * @type {number}
 		 */
-		this.expNeededToLevelUp = this.expNeeded();
+		this.expNeededToLevelUp = 0;
 		/**
 		 * @type {boolean}
 		 */
@@ -85,6 +85,8 @@ module.exports = class PokemonModel
 		 * @type {{hp: number, atk: number, def: number, spa: number, spd: number, spe: number}}
 		 */
 		this.evs = evs;
+
+		this.expNeeded();
 	}
 
 	/**
@@ -98,6 +100,8 @@ module.exports = class PokemonModel
 
 	/**
 	 * Used to get the amount of exp is needed for the pokemon to level up.
+	 * @todo Fix this so it doesn't throw the TypeError that it is not a function. 
+	 * @todo Make this where the PokemonModel automatically uses this method so we can get the expNeededToLevelUp to added, and be able to be used.
 	 */
 	expNeeded()
 	{

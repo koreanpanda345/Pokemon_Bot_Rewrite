@@ -21,7 +21,8 @@ init(); // execute the bot.
  * @todo Example TODO List - koreanpanda345
  * So I can properly give you credits. you can add more information like your github account, and such just put them in () next to your name.
  * @todo Example TODO List with more information - koreanpanda345 (https://github.com/koreanpanda345)
- *
+ * 
+ * @todo Fix some bugs with the Database classes. Check The models folder, and the database files. I written todos for what i need to be done.
  * @todo Make info command to be used to check the user's first selected pokemon in their team, or a pokemon that they want to look up by their caught id.
  * @todo Make team command, to be used to add, remove, arrange pokemon, in the user's team.
  * @todo Make a bag command, to be used to see what items, the user has currently.

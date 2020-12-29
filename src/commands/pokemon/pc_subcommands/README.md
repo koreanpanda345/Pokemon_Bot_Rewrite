@@ -1,0 +1,3 @@
+# This is the PC Subcommand Folder.
+## What is this folder for?
+This folder is for the subcommands in the pc command. since in discord.js there is no actually way to make group commands, like in `discord.net`, `dsharpplusplus`, and `serenity`, we have to make them inside the command. But rather than doing that, it is easier to make a folder, and have the subcommands in their own files, as modules. THis reduce the amount of lines needed in the pc command, and enables more organization.

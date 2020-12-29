@@ -78,8 +78,9 @@ module.exports = class PlayerDB
 	 * @param {PokemonModel}  model - the updated Pokemon Model.
 	 * @param {boolean} team - whether the pokemon is in the team array, or not. if not, then we will assume it is in the pc array.
 	 */
-	updatePokemon(index, model, team= false)
+	updatePokemon(index, model, team = false)
 	{
+		model.expNeeded();
 		const account = this.getAccount();
 		console.debug(account);
 		if(team)

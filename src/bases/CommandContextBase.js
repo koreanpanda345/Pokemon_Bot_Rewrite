@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-const { Message, MessageEmbed, Guild, Channel, User, GuildMember } = require("discord.js");
+const { Message, MessageEmbed, Guild, Channel, User, GuildMember} = require("discord.js");
 
 
 module.exports = class CommandContextBase
@@ -53,7 +53,7 @@ module.exports = class CommandContextBase
 
 	/**
 	 *
-	 * @returns {module:"discord.js".MessageEmbed}
+	 * @returns {MessageEmbed}
 	 */
 	defaultEmbed()
 	{

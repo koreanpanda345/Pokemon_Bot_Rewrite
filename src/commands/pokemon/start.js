@@ -109,7 +109,7 @@ module.exports = class StartPokemonCommand extends CommandBase
 												"None",
 												0,
 												0,
-												species.growth_rate,
+												species.growth_rate.name,
 												{
 													hp: randomInt(0, 31),
 													atk: randomInt(0, 31),

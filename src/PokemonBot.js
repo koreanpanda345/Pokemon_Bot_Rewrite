@@ -31,8 +31,8 @@ module.exports = class PokemonBot extends Client
 		 * @type {import("discord.js").PresenceStatusData}
 		 */
 		this.status = "online";
-		this.commandCategories = ["miscellaneous", "pokemon"];
-		this.eventCategories = ["client", "guild"];
+		this.commandCategories = ["miscellaneous", "pokemon"]; // Command Categories.
+		this.eventCategories = ["client", "guild"]; // Event Categories.
 	}
 
 	loadFiles()
