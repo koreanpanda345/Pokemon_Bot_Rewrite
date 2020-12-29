@@ -27,6 +27,7 @@ init(); // execute the bot.
  * @todo Make a bag command, to be used to see what items, the user has currently.
  * @todo make a item command, to be used to interact with the items that the user has.
  * @todo make a shop command, to be used to purchase items, with credits.
+ * @todo make a trading system, for users to trade pokemon.
  * @todo make guild settings commands, to be used to configure the bot to behave a certain way that the server wants it to be. (Permissions: Manage Server)
  * @todo make help command, to display the bot's commands, or info about a specific command. (Should be dynamic)
  * @todo make a spawn system, to spawn pokemon in a server. (This system should not have any risk of spamming.)
