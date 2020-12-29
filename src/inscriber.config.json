@@ -1,0 +1,37 @@
+{
+  "overwrite-config": false,
+  "write-logs": false,
+  "one-file": false,
+  "log-paths": {
+    "error": "./Logs/error",
+    "info": "./Logs/info",
+    "debug": "./Logs/debug",
+    "warn": "./Logs/warn"
+  },
+  "log-patterns": {
+    "error": "(<time>)\t[<type>]\t<message>",
+    "info": "(<time>)\t[<type>]\t<message>",
+    "debug": "(<time>)\t[<type>]\t<message>",
+    "warn": "(<time>)\t[<type>]\t<message>"
+  },
+  "log-colors": {
+    "error": {
+      "text": "black",
+      "background": "red"
+    },
+    "info": {
+      "text": "black",
+      "background": "white"
+    },
+    "debug": {
+      "text": "black",
+      "background": "green"
+    },
+    "warn": {
+      "text": "black",
+      "background": "yellow"
+    }
+  },
+  "custom-logs": [],
+  "time-pattern": "MMMM DD YYYY, h:mm:ss a"
+}
