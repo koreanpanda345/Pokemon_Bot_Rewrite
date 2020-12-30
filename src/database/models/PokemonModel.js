@@ -4,7 +4,7 @@
  */
 module.exports = class PokemonModel
 {
-	constructor(name, nickname, level, exp, shiny, nature, moves, ability, pokerus, canEvolve, canMegaEvolve, item, status, maxHp, currentHp, growthRate, ivs, evs)
+	constructor(name, nickname, level, exp, shiny, nature, moves, ability, pokerus, canEvolve, canMegaEvolve, item, status, maxHp, currentHp, growthRate, ivs, evs, pokeball = "N/A")
 	{
 		/**
 		 * @type {string}
@@ -83,6 +83,7 @@ module.exports = class PokemonModel
 		 * @type {{hp: number, atk: number, def: number, spa: number, spd: number, spe: number}}
 		 */
 		this.evs = evs;
+		this.pokeball = pokeball; // if pokeball is N/A Then that means it is a wild pokemon. if it is false, then that means that pokemon can't be caught. if it is a string then it should be a pokeball's name.
 	}
 
 	/**

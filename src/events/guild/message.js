@@ -2,11 +2,12 @@
 // eslint-disable-next-line no-unused-vars
 const PokemonBot = require("../../PokemonBot");
 // eslint-disable-next-line no-unused-vars
-const { Message } = require("discord.js");
+const { Message, MessageEmbed } = require("discord.js");
 const CommandContextBase = require("../../bases/CommandContextBase");
 const PlayerDB = require("../../database/PlayerDB");
 const ExpSystem = require("../../Systems/PokemonSystems/ExpSystem");
-
+const SpawnSystem = require("../../Systems/CatchSystem/SpawnSystem");
+const {getSprite} = require("../../api/PokeApi/GetPokemon");
 /**
  * Message Event.
  * @type {exports}
@@ -29,6 +30,17 @@ module.exports = class
 	{
 		if(message.author.bot || message.channel.type === "dm") return; // If author is bot, or message is in dms, then we are not going to do anything.
 		const db = new PlayerDB(message.author.id);
+		const spawnSystem = new SpawnSystem(message.channel.id);
+		if(spawnSystem.spawnChance())
+		{
+			let spawn = await spawnSystem.spawnPokemon();
+			const embed = new MessageEmbed()
+				.setColor("RANDOM")
+				.setDescription(`A Wild ${spawn.pokemon.name} has appeared`)
+				.setImage(await getSprite(spawn.pokemon.name, spawn.pokemon.shiny));
+
+			message.channel.send(embed);
+		}
 		console.debug(db.getAccount());
 		if(db.hasPokemon()) // if the user has an account, and a pokemon.
 		{
